@@ -1,0 +1,31 @@
+.carousel .item {
+    height: 500px;
+}
+
+.item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+.carousel-content {
+    position: absolute;
+    width: 50%;
+    bottom: 25%;
+    left: 25%;
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
+.dropdownn {
+    margin-right: 200px;
+}
+
+.login-link {
+    color:honeydew;
+}
+.login-link:hover {
+    color: lavender;
+}
