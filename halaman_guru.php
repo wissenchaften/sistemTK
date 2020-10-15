@@ -2,6 +2,9 @@
 include "koneksi.php";
 include "function.php";
 session_start();
+if($_SESSION['level']!="guru") {
+    header("location:halaman_murid.php");
+}
 
 // cek apakah yang mengakses halaman ini sudah login
 if($_SESSION['level']=="") {
@@ -9,6 +12,7 @@ if($_SESSION['level']=="") {
 }
 
 $murid = query("SELECT * FROM tb_murid");
+$tugas = query("SELECT * FROM tb_tugas");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +76,7 @@ $murid = query("SELECT * FROM tb_murid");
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="tambah_tugas.php">Tambah Tugas</a>
+                                    <a class="nav-link" href="halaman_guru_tambah_tugas.php">Tambah Tugas</a>
                                     <a class="nav-link" href="edit_tugas.php">Edit Tugas</a>
                                 </nav>
                             </div>
@@ -91,6 +95,59 @@ $murid = query("SELECT * FROM tb_murid");
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
+
+                        <!-- Tabel Data Tugas -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                                Data Tugas
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Judul Tugas</th>
+                                                <th>Deskripsi Tugas</th>
+                                                <th>Tanggal Pembuatan</th>
+                                                <th>Tanggal Deadline</th>
+                                                <th>File Tugas</th>
+                                                <th><i class="fa fa-cog"></i></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Judul Tugas</th>
+                                                <th>Deskripsi Tugas</th>
+                                                <th>Tanggal Pembuatan</th>
+                                                <th>Tanggal Deadline</th>
+                                                <th>File Tugas</th>
+                                                <th><i class="fa fa-cog"></i></th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <?php foreach( $tugas as $row ) { ?>
+                                            
+                                        <tr>
+                                            <td><?= $row["id"]; ?></td>
+                                            <td><?= $row["judul_tugas"]; ?></td>
+                                            <td><?= $row["deskripsi_tugas"]; ?></td>
+                                            <td><?= $row["tgl_pembuatan"]; ?></td>
+                                            <td><?= $row["tgl_deadline"]; ?></td>
+                                            <td><a href="file/<?=$row["file_tugas"];?>"><?= $row["file_tugas"]; ?></a></td>
+                                            <td><a href="ubah_tugas.php?id=<?=$row["id"];?>"><i class="fa fa-edit"></i></a> <a href="hapus_tugas.php?id=<?=$row["id"];?>" onclick="return confirm('Apakah anda yakin ingin menghapus data?');"><i class="fa fa-trash"></i></a></td>
+                                        </tr>
+                                        <?php }  ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Tabel Data Murid -->
                         <div class="card mb-4">
                             <div class="card-header">
                             <i class="fas fa-table mr-1"></i>

@@ -1,7 +1,9 @@
 <?php 
 
 session_start();
-
+if($_SESSION['level']!="murid") {
+    header("location:halaman_guru.php");
+}
 // cek apakah yang mengakses halaman ini sudah login
 if($_SESSION['level']=="") {
     header("location:index.php?pesan=gagal");
