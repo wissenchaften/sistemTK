@@ -2,6 +2,13 @@
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "koneksi.php";
+
+session_start();
+if($_SESSION['level']=="guru") {
+    header("location:halaman_guru.php");
+} elseif($_SESSION['level']=="murid"){
+    header("location:halaman_murid.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -83,11 +90,15 @@ include "koneksi.php";
                     $password = $_POST['password'];
                     $password2 = $_POST['password2'];
                     $level = $_POST['level'];
+                    
                     if($password == $password2) {
                         mysqli_query($conn, "INSERT INTO tb_user(nama, username, password, level) VALUES ('$nama', '$username', '$password', '$level')");
                         echo "<script>alert('Akun berhasil dibuat')</script>";
+                        echo "<script>location.href= 'login.php'</script>";
                     } else { echo "password tidak sama"; }
+                    
                 }
+                
             ?>
         </div>
     </div>

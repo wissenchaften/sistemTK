@@ -64,20 +64,26 @@ $tugas = query("SELECT * FROM tb_tugas");
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="halaman_guru_profil.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
-                                Profil
-                            </a>
                             <div class="sb-sidenav-menu-heading">Tugas Section</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Kelola Tugas
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="halaman_guru_tambah_tugas.php">Tambah Tugas</a>
-                                    <a class="nav-link" href="edit_tugas.php">Edit Tugas</a>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Murid Section</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#muridSection" aria-expanded="false" aria-controls="muridSection">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
+                                Kelola Murid
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="muridSection" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="halaman_guru_tambah_murid.php">Tambah Murid</a>
                                 </nav>
                             </div>
                         </div>
@@ -91,6 +97,9 @@ $tugas = query("SELECT * FROM tb_tugas");
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
+                        <!-- <div class="alert alert-info">
+                            <a class="alert-link" href="tambah_profile_guru.php"><li class="list-unstyled">Selesaikan Profile</li></a>
+                        </div> -->
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
@@ -105,28 +114,17 @@ $tugas = query("SELECT * FROM tb_tugas");
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
-                                                <th>Id</th>
+                                                <th>Id Tugas</th>
                                                 <th>Judul Tugas</th>
-                                                <th>Deskripsi Tugas</th>
+                                                <th style="width:40%;">Deskripsi Tugas</th>
                                                 <th>Tanggal Pembuatan</th>
                                                 <th>Tanggal Deadline</th>
                                                 <th>File Tugas</th>
-                                                <th><i class="fa fa-cog"></i></th>
+                                                <th style="width:5%;"><i class="fa fa-cog"></i></th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Judul Tugas</th>
-                                                <th>Deskripsi Tugas</th>
-                                                <th>Tanggal Pembuatan</th>
-                                                <th>Tanggal Deadline</th>
-                                                <th>File Tugas</th>
-                                                <th><i class="fa fa-cog"></i></th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                         <?php foreach( $tugas as $row ) { ?>
                                             
@@ -156,10 +154,9 @@ $tugas = query("SELECT * FROM tb_tugas");
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Username</th>
+                                                <th>Id Murid</th>
                                                 <th>Nama</th>
                                                 <th>Nama Wali</th>
                                                 <th>Kelas</th>
@@ -172,28 +169,11 @@ $tugas = query("SELECT * FROM tb_tugas");
                                                 <th><i class="fa fa-cog"></i></th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Username</th>
-                                                <th>Nama</th>
-                                                <th>Nama Wali</th>
-                                                <th>Kelas</th>
-                                                <th>Tanggal Lahir</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Alamat</th>
-                                                <th>No. Handphone</th>
-                                                <th>Tahun Masuk</th>
-                                                <th>Email</th>
-                                                <th><i class="fa fa-cog"></i></th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                         <?php foreach( $murid as $row ) { ?>
                                             
                                         <tr>
                                             <td><?= $row["id"]; ?></td>
-                                            <td><?= $row["username_murid"]; ?></td>
                                             <td><?= $row["nama_murid"]; ?></td>
                                             <td><?= $row["nama_wali_murid"]; ?></td>
                                             <td><?= $row["kelas_murid"]; ?></td>

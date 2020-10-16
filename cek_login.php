@@ -7,7 +7,7 @@ include 'koneksi.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-
+$nama = mysqli_query($conn, "SELECT nama FROM tb_user WHERE username='$username'");
 // menyeleksi data user dengan username dan password yang sesuai
 $login = mysqli_query($conn,"SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
 // menghitung jumlah data yang ditemukan

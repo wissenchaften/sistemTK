@@ -91,7 +91,7 @@
 
                     <!-- Grid column -->
                     <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                        <h6 class="mb-0 text-white">Get connected with us on social networks!</h6>
+                        <h6 class="mb-0 text-white">Selalu update terus dengan kami di sosial media!</h6>
                     </div>
                     <!-- Grid column -->
 
@@ -161,7 +161,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="#"> Fajar Shodiq Ansori</a>
+        <a href = "mailto: fanshori11@gmail.com">Fajar Shodiq Ansori</a>
         </div>
         <!-- Copyright -->
 

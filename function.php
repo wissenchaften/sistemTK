@@ -80,7 +80,7 @@ function tambahTugas($data){
 	$tglPembuatanTugas   = $data["tglPembuatanTgs"];
 	$tglDeadlineTugas = $data["tglDeadlineTgs"];
 
-	// upload gambar
+	// upload file
 
 	$file = upload();
 	if ( !$file ){
@@ -105,34 +105,70 @@ function tambahTugas($data){
 	return mysqli_affected_rows($conn);
 }
 
+function tambahProfileGuru($data){
+
+	global $conn;
+	$namaGuru = $data["namaGuru"];
+	$kelasGuru = $data["kelasGuru"];
+	$tglLahirGuru = $data["tglLahirGuru"];
+	$jkGuru = $data["jk"];
+	$alamatGuru = $data["alamatGuru"];
+	$noHpGuru = $data["noHpGuru"];
+	$emailGuru = $data["emailGuru"];
+
+	//query insert data
+	$query = ("INSERT INTO tb_guru(nama_guru, kelas_guru,
+				tgl_lahir_guru, jk_guru, alamat_guru, no_hp_guru, email_guru) VALUES 
+		(
+			'$namaGuru',
+			'$kelasGuru',
+			'$tglLahirGuru',
+			'$jkGuru',
+			'$alamatGuru',
+			'$noHpGuru',
+			'$emailGuru'
+		)
+	");
+
+	mysqli_query($conn,$query);
+
+	return mysqli_affected_rows($conn);
+}
+
+function hapusTugas($id){
+
+	global $conn;
+	$query = ("DELETE FROM tb_tugas WHERE id = $id");
+
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
+
 function ubahTugas($data){
 	global $conn;
 	
-	$id         = $data["id"];
-	$judulTugas       = $data["judulTgs"];
-	$deksripsiTugas      = $data["deskripsiTgs"];
-	$tglPembuatanTugas   = $data["tglPembuatanTgs"];
-	$tglDeadlineTugas = $data["tglDeadlineTgs"];
+	$id         		= $data["id"];
+	$judulTugas       	= $data["judulTgs"];
+	$deksripsiTugas     = $data["deskripsiTgs"];
+	$tglPembuatanTugas  = $data["tglPembuatanTgs"];
+	$tglDeadlineTugas 	= $data["tglDeadlineTgs"];
 	
-	$fileLama = $data["fileLama"];
+	$fileTugas = $data["fileTugas"];
 
-	// cek apakah user pilih gambar baru atau tidak
-	if($_FILES['fileTugas']['error'] === 4){
-
-		$fileTugas = $fileLama;
-
-	// jika user pilih gambar baru maka :
-	} else {
-
+	
 		$fileTugas = upload();
 
-	}
+		if ( !$fileTugas ){
 
+			return false;
+	
+		}
 
 	//query insert data
 	$query = "UPDATE tb_tugas SET
 				judul_tugas   = '$judulTugas',
-				deksripsi_tugas  = '$deksripsiTugas',
+				deskripsi_tugas  = '$deksripsiTugas',
 				tgl_pembuatan    = '$tglPembuatanTugas',
 				tgl_deadline  = '$tglDeadlineTugas',
 				file_tugas = '$fileTugas'
@@ -154,11 +190,44 @@ function hapusMurid($id){
 	return mysqli_affected_rows($conn);
 }
 
+function tambahMurid($data){
+	global $conn;
+	
+	$namaMurid      = $data["namaMurid"];
+	$namaWaliMurid  = $data["namaWaliMurid"];
+    $kelasMurid     = $data["kelasMurid"];
+	$tglLahir       = $data["tglLahirMurid"];
+    $jk             = $data["jk"];
+	$alamat         = $data["alamat"];
+	$noHpMurid      = $data["noHpMurid"];
+	$tahunMasuk     = $data["tahunMasuk"];
+    $emailMurid     = $data["emailMurid"];
+    
+    $query = ("INSERT INTO tb_murid(nama_murid, nama_wali_murid,
+				kelas_murid, tgl_lahir_murid, jk_murid, alamat_murid, no_hp_murid,
+				tahun_masuk_murid, email_murid) VALUES 
+		(
+			'$namaMurid',
+			'$namaWaliMurid',
+			'$kelasMurid',
+			'$tglLahir',
+			'$jk',
+			'$alamat',
+			'$noHpMurid',
+			'$tahunMasuk',
+			'$emailMurid'
+		)
+	");
+
+	mysqli_query($conn,$query);
+
+	return mysqli_affected_rows($conn);
+}
+
 function ubahMurid($data){
 	global $conn;
 	
 	$id             = $data["id"];
-	$username       = $data["username"];
 	$namaMurid      = $data["namaMurid"];
 	$namaWaliMurid  = $data["namaWaliMurid"];
     $kelasMurid     = $data["kelasMurid"];
@@ -170,7 +239,6 @@ function ubahMurid($data){
     $emailMurid     = $data["emailMurid"];
     
     $query = "UPDATE tb_murid SET
-				username_murid = '$username',
                 nama_murid = '$namaMurid',
                 nama_wali_murid = '$namaWaliMurid',
                 kelas_murid = '$kelasMurid',

@@ -1,11 +1,11 @@
-<?php 
+<?php
+include 'koneksi.php';
+require 'function.php';
 session_start();
 
 if($_SESSION['level']=="") {
     header("location:index.php?pesan=gagal");
 }
-//menghubungkan dgn functions.php
-require 'function.php';
 
 // ambil data di URL
 
@@ -62,8 +62,8 @@ if (isset ($_POST["submit"])) {
                     class="form-control" value="<?= $tugas["judul_tugas"]; ?>" required>
             </div>
             <div class="form-group">
-                <label for="deskripsiTgs">Deskripsi Tugas : </label><input name="deskripsiTgs" type="text"
-                    id="deskripsiTgs" class="form-control" value="<?= $tugas["deskripsi_tugas"] ?>" required>
+                <label for="deskripsiTgs">Deskripsi Tugas : </label>
+                <textarea class="form-control" name="deskripsiTgs" id="deskripsiTgs" cols="30" rows="10"><?= $tugas["deskripsi_tugas"] ?></textarea required> 
             </div>
             <div class="form-group">
                 <label for="tglPembuatanTgs">Tanggal Pembuatan : </label><input name="tglPembuatanTgs" type="date"
@@ -80,14 +80,13 @@ if (isset ($_POST["submit"])) {
                         <span class="input-group-text" id="fileTgs">Upload</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" name="fileLama" class="custom-file-input" id="inputGroupFileTgs"
-                            aria-describedby="fileTgs" accept="application/pdf" value="<?=$tugas["file_tugas"];?>" style="display:none;">
                         <input type="file" name="fileTugas" class="custom-file-input" id="inputGroupFileTgs"
                             aria-describedby="fileTgs" accept="application/pdf">
                         <label class="custom-file-label" for="inputGroupFileTgs">Choose file</label>
                     </div>
                 </div>
             </div>
+            <p class="text-muted" style="font-size:12px;"> Note : File PDF</p>
             <div class="form-group">
                 <input class="btn btn-primary w-100 p-3 mb-5" type="submit" name="submit"></input>
             </div>

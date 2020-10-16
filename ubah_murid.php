@@ -58,7 +58,6 @@ if (isset ($_POST["submit"])) {
 		<form action="" method="POST">
                 <div class="form-group">
                     <input type="hidden" name="id" value="<?= $murid["id"]; ?>">
-                        <label for="username">Username : </label><input name="username" type="text" id="username" class="form-control" value="<?= $murid["username_murid"]; ?>" required>
                 </div>
 				<div class="form-group">
                         <label for="namaMurid">Nama Murid : </label><input name="namaMurid" type="text" id="namaMurid" class="form-control" value="<?= $murid["nama_murid"] ?>" required>

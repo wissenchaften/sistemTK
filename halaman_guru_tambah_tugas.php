@@ -1,9 +1,16 @@
 <?php
 include 'koneksi.php';
 require 'function.php';
+session_start();
+if($_SESSION['level']!="guru") {
+    header("location:halaman_murid.php");
+}
 
+// cek apakah yang mengakses halaman ini sudah login
+if($_SESSION['level']=="") {
+    header("location:index.php?pesan=gagal");
+}
 if (isset ($_POST["submit"])) {
-	var_dump($_POST);
 
 	// cek apakah data berhasil diubah atau tidak -> verifikasi update dgn function javascript
 	if( tambahTugas($_POST) > 0 )  {
@@ -57,7 +64,7 @@ if (isset ($_POST["submit"])) {
             <div class="form-group">
                 <label for="deadlineTgs">Deadline Tugas</label>
                 <input type="date" name="tglDeadlineTgs" id="deadlineTgs" class="form-control">
-                <p class="text-muted" style="font-size:12px;"> Note : Format tanggal m/d/y</p>
+                <p class="text-muted" style="font-size:12px;"> Note : Format tanggal bulan/hari/tahun</p>
             </div>
             <div class="form-group">
             <label for="deadlineTgs">File Tugas</label>
@@ -70,7 +77,8 @@ if (isset ($_POST["submit"])) {
                         aria-describedby="fileTgs" accept="application/pdf">
                     <label class="custom-file-label" for="inputGroupFileTgs">Choose file</label>
                 </div>
-            </div>
+            </div>    
+            <p class="text-muted" style="font-size:12px;"> Note : File PDF</p>
             </div>
             <div class="form-group">
                     <input class="btn btn-primary w-100 p-3 mb-5" type="submit" name="submit"></input>
