@@ -2,6 +2,13 @@
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "koneksi.php";
+
+session_start();
+if($_SESSION['level']=="guru") {
+    header("location:halaman_guru.php");
+} elseif($_SESSION['level']=="murid"){
+    header("location:halaman_murid.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +17,12 @@ include "koneksi.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/c6af5a4484.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
+
 
     <title>Halaman Registrasi</title>
 </head>
@@ -83,16 +94,22 @@ include "koneksi.php";
                     $password = $_POST['password'];
                     $password2 = $_POST['password2'];
                     $level = $_POST['level'];
+                    
                     if($password == $password2) {
                         mysqli_query($conn, "INSERT INTO tb_user(nama, username, password, level) VALUES ('$nama', '$username', '$password', '$level')");
                         echo "<script>alert('Akun berhasil dibuat')</script>";
+                        echo "<script>location.href= 'login.php'</script>";
                     } else { echo "password tidak sama"; }
+                    
                 }
+                
             ?>
         </div>
     </div>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
 </body>
 
 </html>

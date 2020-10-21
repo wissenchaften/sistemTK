@@ -1,8 +1,13 @@
 <?php 
 $host = "localhost";
-$user = "root";
-$password = "admin";
-$database = "db_sistemtk";
+$user = "id15141256_sistemtk";
+$password = "N\8^NbxuCI!+*[wk";
+$database = "id15141256_db_sistemtk";
+
+// $host = "localhost";
+// $user = "root";
+// $password = "admin";
+// $database = "db_sistemtk";
 
 $conn = mysqli_connect($host, $user, $password, $database);
 

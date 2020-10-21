@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/fontawesome/css/all.min.css"> -->
+    <script src="https://kit.fontawesome.com/c6af5a4484.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
 </head>
@@ -56,7 +59,8 @@
                         <img src="images/carousel2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Kelola Tugas</h5>
-                            <p>Guru dapat dengan mudah menggunakan fitur kelola tugas seperti menambahkan tugas, mengedit tugas.</p>
+                            <p>Guru dapat dengan mudah menggunakan fitur kelola tugas seperti menambahkan tugas,
+                                mengedit tugas.</p>
                         </div>
                     </div>
                     <div class="carousel-item item">
@@ -91,7 +95,7 @@
 
                     <!-- Grid column -->
                     <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                        <h6 class="mb-0 text-white">Get connected with us on social networks!</h6>
+                        <h6 class="mb-0 text-white">Selalu update terus dengan kami di sosial media!</h6>
                     </div>
                     <!-- Grid column -->
 
@@ -132,7 +136,8 @@
                     <!-- Content -->
                     <h6 class="text-uppercase font-weight-bold">sistemTK</h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>SistemTK adalah aplikasi berbasis web yang digunakan untuk memudahkan hubungan antara guru dan murid taman kanak-kanak berbagi tugas.</p>
+                    <p>SistemTK adalah aplikasi berbasis web yang digunakan untuk memudahkan hubungan antara guru dan
+                        murid taman kanak-kanak berbagi tugas.</p>
 
                 </div>
                 <!-- Grid column -->
@@ -161,16 +166,17 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="#"> Fajar Shodiq Ansori</a>
+            <a href="mailto: fanshori11@gmail.com">Fajar Shodiq Ansori</a>
         </div>
         <!-- Copyright -->
 
     </footer>
     <!-- Footer -->
 
-
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
 </body>
 
 </html>
