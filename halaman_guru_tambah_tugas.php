@@ -37,17 +37,20 @@ if (isset ($_POST["submit"])) {
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Halaman Tambah Tugas</title>
-    <link rel="stylesheet" href="css/style-admin.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css"> -->
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/c6af5a4484.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style-admin.css" />
 </head>
 
 <body>
 
     <div class="container bg-light shadow">
-    <a class="" href="halaman_guru.php">Kembali</a>
-		<h1>Tambah Tugas</h1>
+        <a class="" href="halaman_guru.php">Kembali</a>
+        <h1>Tambah Tugas</h1>
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="namatugas">Judul Tugas</label>
@@ -67,27 +70,28 @@ if (isset ($_POST["submit"])) {
                 <p class="text-muted" style="font-size:12px;"> Note : Format tanggal bulan/hari/tahun</p>
             </div>
             <div class="form-group">
-            <label for="deadlineTgs">File Tugas</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="fileTgs">Upload</span>
+                <label for="deadlineTgs">File Tugas</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="fileTgs">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="fileTugas" class="custom-file-input" id="inputGroupFileTgs"
+                            aria-describedby="fileTgs" accept="application/pdf">
+                        <label class="custom-file-label" for="inputGroupFileTgs">Choose file</label>
+                    </div>
                 </div>
-                <div class="custom-file">
-                    <input type="file" name="fileTugas" class="custom-file-input" id="inputGroupFileTgs"
-                        aria-describedby="fileTgs" accept="application/pdf">
-                    <label class="custom-file-label" for="inputGroupFileTgs">Choose file</label>
-                </div>
-            </div>    
-            <p class="text-muted" style="font-size:12px;"> Note : File PDF</p>
+                <p class="text-muted" style="font-size:12px;"> Note : File PDF</p>
             </div>
             <div class="form-group">
-                    <input class="btn btn-primary w-100 p-3 mb-5" type="submit" name="submit"></input>
+                <input class="btn btn-primary w-100 p-3 mb-5" type="submit" name="submit"></input>
             </div>
         </form>
     </div>
-
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
     <script src="js/script.js"></script>
 </body>
 

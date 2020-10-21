@@ -23,9 +23,13 @@ $tugas = query("SELECT * FROM tb_tugas");
     <meta name="author" content="" />
     <title>Halaman Murid</title>
     <link rel="stylesheet" href="css/style-admin.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <script src="https://kit.fontawesome.com/c6af5a4484.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css"> -->
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -89,11 +93,13 @@ $tugas = query("SELECT * FROM tb_tugas");
                             <div class="card col-4">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $row["judul_tugas"]; ?></h5>
-                                    <h6 class="mb-2" style="font-size:14px; color:#8a8a8a;">Dibuat : <?= $row["tgl_pembuatan"] ?></h6>
+                                    <h6 class="mb-2" style="font-size:14px; color:#8a8a8a;">Dibuat :
+                                        <?= $row["tgl_pembuatan"] ?></h6>
                                     <p class="card-text"><?= $row["deskripsi_tugas"]; ?></p>
-                                    <h6 class="mb-2" style="font-size:14px; color:#8a8a8a;">Deadline : <?= $row["tgl_deadline"] ?></h6>
+                                    <h6 class="mb-2" style="font-size:14px; color:#8a8a8a;">Deadline :
+                                        <?= $row["tgl_deadline"] ?></h6>
                                     <a href="file/<?= $row["file_tugas"]; ?>" class="card-link">Download Tugas</a>
-                                    
+
                                 </div>
                             </div>
                             <?php }  ?>
@@ -115,8 +121,10 @@ $tugas = query("SELECT * FROM tb_tugas");
             </footer>
         </div>
     </div>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
     <script src="js/script.js"></script>
 </body>
 
